@@ -1,56 +1,323 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nunn Corporation — Innovations. Sovereignty. America.</title>
-    <link rel="stylesheet" href="CSS/style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nunn Corporation | Innovations. Sovereignty. America.</title>
+
+  <style>
+    /* ========== BASIC RESET ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #05070b;
+      color: #f5f5f5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ========== NAVBAR ========== */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 1.5rem;
+      background: rgba(3, 5, 10, 0.96);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    .top-nav nav a {
+      margin-left: 1rem;
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+
+    .top-nav nav a:hover {
+      opacity: 1;
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      padding: 3rem 1.75rem;
+      background: radial-gradient(circle at top left, #18243b, #05070b 55%);
+      border-bottom: 2px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .hero-inner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 2.3rem;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .hero-sub {
+      font-size: 0.95rem;
+      max-width: 520px;
+      opacity: 0.9;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-primary {
+      display: inline-block;
+      padding: 0.75rem 1.4rem;
+      background: #e11b2f; /* deep red */
+      color: #fff;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .cta-primary:hover {
+      background: #b91224;
+    }
+
+    .hero-tagline {
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      opacity: 0.85;
+    }
+
+    /* ========== SECTIONS ========== */
+    .section {
+      padding: 2.75rem 1.75rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .section-alt {
+      background: #090b12;
+    }
+
+    .section h2 {
+      font-size: 1.7rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-intro {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      max-width: 640px;
+      margin-bottom: 1.75rem;
+    }
+
+    .section p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* ========== GRID CARDS ========== */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: #0c101a;
+      border-radius: 10px;
+      padding: 1.4rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      opacity: 0.96;
+    }
+
+    /* ========== BULLET LIST ========== */
+    .bullet-list {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+
+    .bullet-list li {
+      margin-bottom: 0.75rem;
+      font-size: 0.95rem;
+    }
+
+    .bullet-list li::before {
+      content: "• ";
+      color: #e11b2f;
+    }
+
+    /* ========== CONTACT ========== */
+    .contact-line a {
+      color: #8ab4ff;
+      text-decoration: none;
+    }
+
+    .contact-line a:hover {
+      text-decoration: underline;
+    }
+
+    /* ========== FOOTER ========== */
+    .footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.8rem;
+      opacity: 0.8;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* ========== MOBILE ========== */
+    @media (max-width: 720px) {
+      .top-nav nav {
+        display: none; /* simple mobile nav for now */
+      }
+      .hero {
+        padding-top: 4rem;
+      }
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <!-- HERO -->
-    <header class="hero">
-        <div class="hero-content">
-            <img src="assets/IMG_2783.PNG" alt="Cody Nunn" class="hero-photo">
+  <!-- NAVBAR -->
+  <header class="top-nav">
+    <div class="nav-logo">Nunn Corporation</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#initiatives">Initiatives</a>
+      <a href="#technology">Technology</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-            <h1>Cody Nunn</h1>
-            <h2>Founder & CEO, Nunn Corporation</h2>
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-inner">
+      <h1>Innovations, Sovereignty, and Next-Gen Infrastructure.</h1>
+      <p class="hero-sub">
+        Built in America. Designed for national strength, global interoperability, and real-world outcomes.
+      </p>
+      <a href="#initiatives" class="cta-primary">Explore the Mission</a>
+      <p class="hero-tagline">
+        Nunn Corporation operates as an innovation engine for AI, infrastructure, and economic systems aligned with U.S. interests.
+      </p>
+    </div>
+  </section>
 
-            <p class="tagline">
-                Innovations, Sovereignty, and Next-Gen Infrastructure — Built in America.
-            </p>
+  <!-- INITIATIVES -->
+  <section id="initiatives" class="section">
+    <h2>Flagship Initiatives</h2>
+    <p class="section-intro">
+      Nunn Corporation runs a portfolio of systems built to reinforce American infrastructure, economic capacity,
+      and secure AI deployment.
+    </p>
 
-            <a href="#initiatives" class="cta">Explore the Mission</a>
-        </div>
-    </header>
-
-    <!-- SECTION: ABOUT -->
-    <section class="section">
-        <h2>Building the Future of American Infrastructure</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Stargate Initiative</h3>
         <p>
-            Nunn Corporation leads the frontier of AI systems, national-scale infrastructure, 
-            economic engines, energy-efficient systems, and sovereign technology.
-            From Sentinel AI to the Stargate Initiative, every system is designed to 
-            strengthen the American innovation base and future-proof national capability.
+          A national AI and economic grid framework designed to align states, agencies, and strategic partners
+          under a unified prosperity engine.
         </p>
-    </section>
+      </article>
 
-    <!-- SECTION: INITIATIVES -->
-    <section class="section" id="initiatives">
-        <h3>Current Initiatives</h3>
+      <article class="card">
+        <h3>Sentinel AI</h3>
+        <p>
+          Executive-grade orchestration, governance, and security intelligence layered over critical systems,
+          designed for real-world decisioning and compliance.
+        </p>
+      </article>
 
-        <ul class="initiative-list">
-            <li><strong>Stargate Initiative:</strong> National AI + economic grid.</li>
-            <li><strong>Sentinel AI:</strong> Executive-grade intelligence architecture.</li>
-            <li><strong>Nexus Layer:</strong> Universal signal stewardship across U.S. infrastructure.</li>
-            <li><strong>CDNLUX:</strong> Global economic mesh expansion.</li>
-            <li><strong>Vault Game System:</strong> Public engagement, transparency & governance.</li>
-        </ul>
-    </section>
+      <article class="card">
+        <h3>Nexus Layer</h3>
+        <p>
+          Universal signal and data routing across fiber, satellite, and edge – optimized for low-friction,
+          high-resilience communication.
+        </p>
+      </article>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <p>© 2025 Nunn Corporation. Built in America. Powered by Sentinel AI.</p>
-    </footer>
+      <article class="card">
+        <h3>CDNLUX Phoenix</h3>
+        <p>
+          A global economic mesh architecture built around compliance, transparency, and sovereign-aligned value flow.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- TECHNOLOGY -->
+  <section id="technology" class="section section-alt">
+    <h2>Technology & Sovereignty</h2>
+    <p class="section-intro">
+      Every stack under Nunn Corporation is built with sovereignty, accountability, and verifiable execution in mind.
+    </p>
+
+    <ul class="bullet-list">
+      <li><strong>AI with guardrails:</strong> Sentinel-led orchestration that stays inside defined lanes.</li>
+      <li><strong>American-built infrastructure:</strong> Priority on U.S. cloud regions, U.S. talent, and secure supply chains.</li>
+      <li><strong>Audit-ready by design:</strong> Ledgered decisions, traceable actions, and clean governance posture.</li>
+      <li><strong>Partner-first:</strong> Built to integrate with federal, enterprise, and strategic partners without chaos.</li>
+    </ul>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <h2>About Nunn Corporation</h2>
+    <p class="section-intro">
+      Nunn Corporation was founded to do things differently: sovereign-aligned, execution-focused,
+      and deeply accountable to outcomes.
+    </p>
+    <p>
+      Under Cody Nunn’s leadership, Nunn Corporation operates as an innovation engine for AI, infrastructure,
+      economic architecture, and stakeholder-aligned systems. The goal is simple: build tools that make it easier
+      for governments, enterprises, and communities to operate with clarity, strength, and long-term stability.
+    </p>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section section-alt">
+    <h2>Contact & Engagement</h2>
+    <p class="section-intro">
+      For partner inquiries, government engagement, or strategic collaboration, Nunn Corporation maintains
+      a selective but open channel for aligned stakeholders.
+    </p>
+    <p class="contact-line">
+      For formal outreach, please use your existing liaison channel or email:<br />
+      <a href="mailto:info@nunncorporation.com">info@nunncorporation.com</a>
+    </p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2025 Nunn Corporation. Built in America. Powered by Sentinel AI.</p>
+  </footer>
 </body>
 </html>
